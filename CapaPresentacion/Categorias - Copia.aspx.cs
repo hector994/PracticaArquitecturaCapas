@@ -8,12 +8,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace CapaPresentacion
+
 {
-    public partial class Categorias : System.Web.UI.Page
+    public partial class Productos : System.Web.UI.Page
     {
         //creamos un objeto de la clase CategoriaLogica que se encuentra en la
         //capa de logica negocios
-        private CategoriaLogica Logica = new CategoriaLogica();
+        private PorductoLogica Logica = new PorductoLogica();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +22,7 @@ namespace CapaPresentacion
             {
                 int idCategoria = int.Parse(Request["eliminar"]);
 
-                if (Logica.EliminarCategoria(idCategoria))
+                if (Logica.EliminarProducto(idCategoria))
                 {
                     Response.Redirect("~/Categorias.aspx");
                 }
@@ -50,14 +51,14 @@ namespace CapaPresentacion
                 return;
             }
 
-            Categoria model = new Categoria
+            Producto model = new Producto
             {
-                NombreCategoria = TextBoxNombreCategoria.Text,
-                DescripcionCategoria = TextBoxDescripcionCategoria.Text
+                NombreProducto = TextBoxNombreCategoria.Text,
+                Descripcion = TextBoxDescripcionCategoria.Text
             };
 
             //varificamos el resultado
-            bool resultado = Logica.AgregarCategoria(model);
+            bool resultado = Logica.AgregarProducto(model);
 
             if (resultado)
             {

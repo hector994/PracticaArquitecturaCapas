@@ -39,28 +39,18 @@
                         <!--Fin Card Header-->
 
                         <!--GridView-->
-                           <div class="table-responsive">
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="IdCategoria" DataSourceID="SqlDataSource1">
-                                <Columns>
-                                    <asp:BoundField DataField="IdCategoria" HeaderText="IdCategoria" InsertVisible="False" ReadOnly="True" SortExpression="IdCategoria" />
-                                    <asp:BoundField DataField="NombreCategoria" HeaderText="NombreCategoria" SortExpression="NombreCategoria" />
-                                    <asp:BoundField DataField="DescripcionCategoria" HeaderText="DescripcionCategoria" SortExpression="DescripcionCategoria" />
-                                
-                                    <asp:TemplateField HeaderText="Opciones">
-                                        <ItemTemplate>
-                                            <a class="btn btn-primary" href="DetalleCategoria.aspx?id=<%# Eval("IdCategoria") %>">Detalles</a>
-                                            <button type="button" class="btn btn-danger" onclick="deleteCategoria(<%# Eval("IdCategoria") %>)">
-                                                Eliminar
-                                            </button>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-
-                                </Columns>
-                            </asp:GridView>
-         
-     
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBPracticaCapasConnectionString2 %>" SelectCommand="SelectCategoria" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
-                        <!--Fin GridView-->
+                           <div class="table-responsive">          
+                               <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="IdProducto" DataSourceID="SqlDataSource1">
+                                   <Columns>
+                                       <asp:BoundField DataField="IdProducto" HeaderText="IdProducto" InsertVisible="False" ReadOnly="True" SortExpression="IdProducto" />
+                                       <asp:BoundField DataField="NombreProducto" HeaderText="NombreProducto" SortExpression="NombreProducto" />
+                                       <asp:BoundField DataField="CantidadProducto" HeaderText="CantidadProducto" SortExpression="CantidadProducto" />
+                                       <asp:BoundField DataField="IdCategoria" HeaderText="IdCategoria" SortExpression="IdCategoria" />
+                                       <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                                   </Columns>
+            </asp:GridView>
+                               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBPracticaCapasConnectionString2 %>" SelectCommand="SelectProducto" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                             <!--Fin GridView-->
 
                     </div>
                     <!--Fin Card Categorias-->
@@ -152,6 +142,8 @@
                 }
             </script>
         </div>
+
+
 
     </form>
 </body>

@@ -11,7 +11,7 @@ namespace CapaPresentacion
 {
 
 
-    public partial class Categorias
+    public partial class Productos
     {
 
         /// <summary>
